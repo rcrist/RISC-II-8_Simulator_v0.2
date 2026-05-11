@@ -1,0 +1,21 @@
+v2.0 raw
+# 0x00-0x0E: R-Type & I-Type ALU operations
+15*00
+
+# 0x0F: unused
+1*00
+
+# 0x10-0x13: Memory / IO operations
+14
+34
+02
+02
+
+# 0x14-0x17: unused
+4*00
+
+# 0x18-0x1B: Branch / jump operations
+00
+00
+40
+01

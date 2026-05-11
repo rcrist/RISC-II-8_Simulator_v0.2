@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #111318;
+  color: #eef2f7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.app-header {
+  padding: 18px 24px 12px;
+  border-bottom: 1px solid #2a2f3a;
+  background: #171a21;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.app-header p {
+  margin: 6px 0 0;
+  color: #aab3c2;
+  font-size: 14px;
+}
+
+.sim-stage {
+  min-height: 0;
+  padding: 16px;
+}
+
+#sketch-container {
+  width: 100%;
+  height: calc(100vh - 96px);
+  min-height: 520px;
+  border: 1px solid #2a2f3a;
+  background: #0b0d12;
+}
+
+canvas {
+  display: block;
+}

@@ -57,7 +57,7 @@ class ControlUnit {
   }
 
   async loadDefaultHexFile() {
-    await this.loadHexFile('../assets/Control_Unit_Rom.hex');
+    await this.loadHexFile(new URL('../assets/Control_Unit_Rom.hex', import.meta.url));
   }
 
   async loadHexFile(path) {
@@ -117,18 +117,19 @@ class ControlUnit {
   }
 
   async readHexFile(path) {
+    const fileUrl = path instanceof URL ? path : new URL(path, import.meta.url);
+
     if (typeof fetch === 'function' && typeof window !== 'undefined') {
-      const response = await fetch(path);
+      const response = await fetch(fileUrl);
 
       if (!response.ok) {
-        throw new Error(`Could not load HEX file: ${path}`);
+        throw new Error(`Could not load HEX file: ${fileUrl}`);
       }
 
       return response.text();
     }
 
     const fs = await import('node:fs/promises');
-    const fileUrl = new URL(path, import.meta.url);
     return fs.readFile(fileUrl, 'utf8');
   }
 

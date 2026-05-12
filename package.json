@@ -1,0 +1,12 @@
+{
+  "name": "risc-ii-8-simulator",
+  "version": "0.2.0",
+  "description": "Simulator for RISC-II 8-bit CPU",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "license": "MIT"
+}

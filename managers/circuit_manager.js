@@ -121,6 +121,7 @@ function connect_alu() {
 }
 
 function connect_ram() {
+    ram.connect(cp, 'ramDataOut');
     ram.connect(wbMux, 'input1');
 }
 

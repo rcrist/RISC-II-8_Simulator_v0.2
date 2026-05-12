@@ -42,7 +42,7 @@ body {
 #sketch-container {
   width: 100%;
   height: calc(100vh - 96px);
-  min-height: 520px;
+  min-height: 640px;
   border: 1px solid #2a2f3a;
   background: #0b0d12;
 }

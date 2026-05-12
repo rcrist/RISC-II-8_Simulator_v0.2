@@ -63,7 +63,7 @@ class OutputDecoder {
       listener(this.outputs);
     }
 
-    console.log(`[OutputDecoder] ${this._dataIn} -> thousands=${this.formatSegments(this.thousands)} hundreds=${this.formatSegments(this.hundreds)} tens=${this.formatSegments(this.tens)} ones=${this.formatSegments(this.ones)}`);
+    // console.log(`[OutputDecoder] ${this._dataIn} -> thousands=${this.formatSegments(this.thousands)} hundreds=${this.formatSegments(this.hundreds)} tens=${this.formatSegments(this.tens)} ones=${this.formatSegments(this.ones)}`);
   }
 
   get outputs() {

@@ -33,35 +33,23 @@ class ControlUnit {
   }
 
   get pcSel() {
-    return Boolean((this._dataOut >> 7) & 0x01);
+    return (this._dataOut >> 7) & 0x01;
   }
 
   get addrSel() {
     return (this._dataOut >> 5) & 0x03;
   }
 
-  get addrSel1() {
-    return Boolean((this._dataOut >> 6) & 0x01);
-  }
-
-  get addrSel0() {
-    return Boolean((this._dataOut >> 5) & 0x01);
-  }
-
-  get aluSel() {
-    return Boolean((this._dataOut >> 4) & 0x01);
-  }
-
   get wbSel() {
-    return Boolean((this._dataOut >> 3) & 0x01);
+    return (this._dataOut >> 3) & 0x03;
   }
 
   get memRead() {
-    return Boolean((this._dataOut >> 2) & 0x01);
+    return (this._dataOut >> 2) & 0x01;
   }
 
   get memWrite() {
-    return Boolean((this._dataOut >> 1) & 0x01);
+    return (this._dataOut >> 1) & 0x01;
   }
 
   get halt() {
@@ -91,6 +79,7 @@ class ControlUnit {
     }
 
     this.read();
+    console.log(`[ControlUnit] Loaded HEX file with ${words.length} words.`);
   }
 
   parseHexWords(hexText) {
@@ -148,7 +137,7 @@ class ControlUnit {
     this._dataOut = this._memory[address];
     this.parseControlSignals();
     this.updateOutputs();
-    console.log(`[ControlUnit] READ: Address 0x${address.toString(16).padStart(2, '0')} = 0x${this._dataOut.toString(16).padStart(2, '0')}`);
+    // console.log(`[ControlUnit] READ: Address 0x${address.toString(16).padStart(2, '0')} = 0x${this._dataOut.toString(16).padStart(2, '0')}`);
     this.logControlSignals();
     return this._dataOut;
   }
@@ -166,7 +155,7 @@ class ControlUnit {
   }
 
   logControlSignals() {
-    console.log(`[ControlUnit] PINS: pcSel=${this.pcSel} addrSel=${this.addrSel.toString(2).padStart(2, '0')} aluSel=${this.aluSel} wbSel=${this.wbSel} memRead=${this.memRead} memWrite=${this.memWrite} halt=${this.halt}`);
+    // console.log(`[ControlUnit] PINS: pcSel=${this.pcSel} addrSel=${this.addrSel.toString(2).padStart(2, '0')} aluSel=${this.aluSel} wbSel=${this.wbSel} memRead=${this.memRead} memWrite=${this.memWrite} halt=${this.halt}`);
   }
 
   connect(component, pin = 'dataOut') {

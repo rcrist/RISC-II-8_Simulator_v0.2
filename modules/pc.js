@@ -37,7 +37,7 @@ class PC {
       this._count = (this._count + 1) & 0x1f;
       this._dataOut = this._count;
       this.updateOutputs();
-      console.log(`[PC] COUNT: 0x${this._count.toString(16).padStart(2, '0')}`);
+      // console.log(`[PC] COUNT: 0x${this._count.toString(16).padStart(2, '0')}`);
     }
 
     this._clk = nextClk;
@@ -47,7 +47,7 @@ class PC {
     this._count = 0;
     this._dataOut = 0;
     this.updateOutputs();
-    console.log('[PC] Counter cleared');
+    // console.log('[PC] Counter cleared');
   }
 
   connect(component, pin = 'input0') {

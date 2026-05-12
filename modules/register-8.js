@@ -25,7 +25,7 @@ class Register8 {
       this.validateData(this.d);
       this.value = this.d;
       this.q = this.value;
-      console.log(`[Register8] WRITE: 0x${this.value.toString(16).padStart(2, '0')}`);
+      // console.log(`[Register8] WRITE: 0x${this.value.toString(16).padStart(2, '0')}`);
     }
 
     this._clk = nextClk;
@@ -40,7 +40,7 @@ class Register8 {
   clear() {
     this.value = 0;
     this.q = 0;
-    console.log('[Register8] Register cleared');
+    // console.log('[Register8] Register cleared');
   }
 }
 

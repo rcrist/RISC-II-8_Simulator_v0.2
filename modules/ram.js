@@ -27,7 +27,7 @@ class RAM {
       this.validateAddress(this.address);
       this.validateData(this.dataIn);
       this.memory[this.address] = this.dataIn;
-      console.log(`[RAM] WRITE: Address 0x${this.address.toString(16).padStart(2, '0')} = 0x${this.dataIn.toString(16).padStart(2, '0')}`);
+      // console.log(`[RAM] WRITE: Address 0x${this.address.toString(16).padStart(2, '0')} = 0x${this.dataIn.toString(16).padStart(2, '0')}`);
     }
 
     this._clk = nextClk;
@@ -41,7 +41,7 @@ class RAM {
     if (!this.we) {
       this.dataOut = this.memory[address];
       this.updateOutputs();
-      console.log(`[RAM] READ:  Address 0x${address.toString(16).padStart(2, '0')} = 0x${this.dataOut.toString(16).padStart(2, '0')}`);
+      // console.log(`[RAM] READ:  Address 0x${address.toString(16).padStart(2, '0')} = 0x${this.dataOut.toString(16).padStart(2, '0')}`);
       return this.dataOut;
     }
   }

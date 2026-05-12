@@ -61,7 +61,7 @@ class PCMux {
       listener(this._dataOut);
     }
 
-    console.log(`[PCMux] OUT: 0x${this._dataOut.toString(16).padStart(2, '0')}`);
+    // console.log(`[PCMux] OUT: 0x${this._dataOut.toString(16).padStart(2, '0')}`);
     return this._dataOut;
   }
 

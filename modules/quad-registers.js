@@ -20,6 +20,7 @@ class QuadRegisters {
     this.d1 = 0x00;
     this.d2 = 0x00;
     this.d3 = 0x00;
+    this._writeData = 0x00;
     this.we0 = false;
     this.we1 = true;
     this.we2 = true;
@@ -37,6 +38,15 @@ class QuadRegisters {
     return this._clk;
   }
 
+  get writeData() {
+    return this._writeData;
+  }
+
+  set writeData(nextWriteData) {
+    this.validateData(nextWriteData);
+    this._writeData = nextWriteData;
+  }
+
   set clk(nextClk) {
     const isLeadingEdge = !this._clk && nextClk;
 
@@ -49,11 +59,11 @@ class QuadRegisters {
   }
 
   writeRegisters() {
-    console.log(`[QuadRegisters] WE: rs1=${this.we1} rs2=${this.we2} rd=${this.we3}`);
+    // console.log(`[QuadRegisters] WE: rs1=${this.we1} rs2=${this.we2} rd=${this.we3}`);
     this.writeRegister(this.reg0, 0x00, false);
-    this.writeRegister(this.reg1, this.d1, this.we1);
-    this.writeRegister(this.reg2, this.d2, this.we2);
-    this.writeRegister(this.reg3, this.d3, this.we3);
+    this.writeRegister(this.reg1, this._writeData, this.we1);
+    this.writeRegister(this.reg2, this._writeData, this.we2);
+    this.writeRegister(this.reg3, this._writeData, this.we3);
   }
 
   writeRegister(register, data, writeEnable) {
@@ -85,6 +95,12 @@ class QuadRegisters {
 
     this._outputConnections.push({ field, component, pin });
     component[pin] = this[field];
+  }
+
+  validateData(data) {
+    if (!Number.isInteger(data) || data < 0 || data > 0xff) {
+      throw new Error(`Invalid write data: ${data}. Write data must be an 8-bit value between 0 and 255.`);
+    }
   }
 }
 

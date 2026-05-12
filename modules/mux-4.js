@@ -86,7 +86,7 @@ class Mux4 {
       listener(this._dataOut);
     }
 
-    console.log(`[Mux4] OUT: 0x${this._dataOut.toString(16).padStart(Math.ceil(this.bitWidth / 4), '0')}`);
+    // console.log(`[Mux4] OUT: 0x${this._dataOut.toString(16).padStart(Math.ceil(this.bitWidth / 4), '0')}`);
     return this._dataOut;
   }
 

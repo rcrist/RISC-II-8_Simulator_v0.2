@@ -68,6 +68,7 @@ class PM {
     }
 
     this.read();
+    console.log(`[PM] Loaded HEX file with ${words.length} words.`);
   }
 
   parseHexWords(hexText) {
@@ -129,7 +130,7 @@ class PM {
     this.validateAddress(address);
     this._dataOut = this._memory[address];
     this.updateOutputs();
-    console.log(`[PM] READ: Address 0x${address.toString(16).padStart(2, '0')} = 0x${this._dataOut.toString(16).padStart(4, '0')}`);
+    // console.log(`[PM] READ: Address 0x${address.toString(16).padStart(2, '0')} = 0x${this._dataOut.toString(16).padStart(4, '0')}`);
     return this._dataOut;
   }
 

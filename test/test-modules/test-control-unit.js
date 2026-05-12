@@ -1,4 +1,4 @@
-import ControlUnit from '../modules/control-unit.js';
+import ControlUnit from '../../modules/control-unit.js';
 
 function assertEqual(actual, expected, message) {
   if (actual !== expected) {
@@ -47,11 +47,13 @@ assertEqual(controlUnit.addrSel, 0x03, 'addrSel should decode bits 6:5');
 assertEqual(controlUnit.addrSel1, true, 'addrSel1 should decode bit 6');
 assertEqual(controlUnit.addrSel0, true, 'addrSel0 should decode bit 5');
 assertEqual(controlUnit.aluSel, true, 'aluSel should decode bit 4');
-assertEqual(controlUnit.wbSel, true, 'wbSel should decode bit 3');
+assertEqual(controlUnit.wbSel, 0x03, 'wbSel should decode bits 4:3');
 assertEqual(controlUnit.memRead, true, 'memRead should decode bit 2');
 assertEqual(controlUnit.memWrite, true, 'memWrite should decode bit 1');
 assertEqual(controlUnit.halt, true, 'halt should decode bit 0');
+assertEqual(target.pcSel, true, 'Control unit should drive connected pcSel signal');
 assertEqual(target.addrSel, 0x03, 'Control unit should drive connected decoded signal');
+assertEqual(target.wbSel, 0x03, 'Control unit should drive connected wbSel signal');
 assertEqual(updates.at(-1), 0xff, 'Control unit should notify listeners after reads');
 
 await controlUnit.loadDefaultHexFile();

@@ -58,7 +58,7 @@ class ALU {
       listener(this._dataOut);
     }
 
-    console.log(`[ALU] ${this.operationName(this._sel)}: 0x${this._a.toString(16).padStart(2, '0')}, 0x${this._b.toString(16).padStart(2, '0')} -> 0x${this._dataOut.toString(16).padStart(2, '0')}`);
+    // console.log(`[ALU] ${this.operationName(this._sel)}: 0x${this._a.toString(16).padStart(2, '0')}, 0x${this._b.toString(16).padStart(2, '0')} -> 0x${this._dataOut.toString(16).padStart(2, '0')}`);
     return this._dataOut;
   }
 

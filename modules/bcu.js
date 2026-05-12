@@ -53,7 +53,7 @@ class BCU {
       listener(this.flags);
     }
 
-    console.log(`[BCU] A=0x${this._a.toString(16).padStart(2, '0')} B=0x${this._b.toString(16).padStart(2, '0')} ZF=${this.zf} BEQF=${this.beqf} BNEF=${this.bnef} BLTF=${this.bltf} BGEF=${this.bgef}`);
+    // console.log(`[BCU] A=0x${this._a.toString(16).padStart(2, '0')} B=0x${this._b.toString(16).padStart(2, '0')} ZF=${this.zf} BEQF=${this.beqf} BNEF=${this.bnef} BLTF=${this.bltf} BGEF=${this.bgef}`);
   }
 
   get flags() {

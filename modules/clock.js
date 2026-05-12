@@ -6,6 +6,7 @@
 class Clock {
   constructor(frequencyHz = 1) {
     this._clk = false;
+    this._halt = false;
     this._timer = null;
     this._listeners = [];
     this._connections = [];
@@ -19,6 +20,18 @@ class Clock {
 
   get isRunning() {
     return this._timer !== null;
+  }
+
+  get halt() {
+    return this._halt;
+  }
+
+  set halt(nextHalt) {
+    this._halt = Boolean(nextHalt);
+
+    if (this._halt) {
+      this.stop();
+    }
   }
 
   setFrequency(frequencyHz) {
@@ -40,7 +53,7 @@ class Clock {
   }
 
   start() {
-    if (this.isRunning) {
+    if (this.isRunning || this._halt) {
       return;
     }
 
@@ -76,7 +89,7 @@ class Clock {
       listener(this._clk);
     }
 
-    console.log(`[Clock] ${this._clk ? 'HIGH' : 'LOW'}`);
+    // console.log(`[Clock] ${this._clk ? 'HIGH' : 'LOW'}`);
   }
 
   connect(component, pin = 'clk') {

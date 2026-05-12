@@ -45,7 +45,7 @@ class IF_ID extends Register16 {
       this.value = this.d;
       this.q = this.value;
       this.updateFieldOutputs();
-      console.log(`[IF_ID] WRITE: 0x${this.value.toString(16).padStart(4, '0')}`);
+      // console.log(`[IF_ID] WRITE: 0x${this.value.toString(16).padStart(4, '0')}`);
     }
 
     this._clk = nextClk;
